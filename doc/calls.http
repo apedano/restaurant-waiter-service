@@ -1,0 +1,80 @@
+
+
+
+#POST http://account-service-xan80-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/accounts/ar
+#Content-Type: application/json
+#
+#{
+#  "accountNumber":3, "customerNumber":5, "customerName":"Customer5", "balance":123321.122
+#}
+#
+####
+#GET http://account-service-xan80-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/accounts/ar
+#Accept: application/json
+#
+####
+#
+#GET http://account-service-xan80-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/accounts/repo/
+#Accept: application/json
+#
+####
+#
+#GET http://{{host}}/accounts/repo/
+#Accept: application/json
+#
+
+
+###
+
+POST http://localhost:8081/api/restaurant/waiters/0b0df34d-bddf-4568-a47e-0f019772a76e/add-dishes
+Content-Type: application/json
+
+["Gnocchetti di farina cotta e astice", "Gnocchetti di farina cotta e astice", "Spaghettone, limone e gambero rosso di Mazara"]
+
+
+###
+
+POST http://localhost:8080/api/restaurant/orders/add-dishes
+Content-Type: application/json
+
+{
+  "orderId": "05d2d040-b60a-4bdd-913b-acf5d7a7a913",
+  "dishNames": [
+    "Gnocchetti di farina cotta e astice",
+    "Gnocchetti di farina cotta e astice",
+    "Spaghettone, limone e gambero rosso di Mazara"
+  ]
+}
+
+###
+
+GET http://localhost:8081/api/restaurant/waiters/order-updates
+
+####
+
+POST http://localhost:8081/api/restaurant/waiters/create-order
+Content-Type: application/json
+
+
+{
+  "name":"Customer", "tableName":"Table5", "numberOfPeople":3
+}
+
+###
+
+POST http://localhost:8080/api/restaurant/orders/add-dishes-to-last
+Content-Type: application/json
+
+{
+  "orderId": "",
+  "dishNames": [
+    "Gnocchetti di farina cotta e astice",
+    "Gnocchetti di farina cotta e astice",
+    "Spaghettone, limone e gambero rosso di Mazara"
+  ]
+}
+
+
+
+
+
